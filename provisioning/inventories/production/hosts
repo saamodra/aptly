@@ -1,0 +1,6 @@
+[personal]
+local
+
+[personal:vars]
+ansible_host=103.175.216.12
+ansible_user=samodra

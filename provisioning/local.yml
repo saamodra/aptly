@@ -1,0 +1,23 @@
+---
+- name: VPS Setup
+  hosts: local
+  become: true
+  vars:
+
+  pre_tasks:
+    - name: Update apt cache if needed
+      apt: update_cache=yes cache_valid_time=86400
+      changed_when: false
+
+  roles:
+    # - role: packages
+    #   tags: packages
+
+    # - role: docker
+    #   tags: docker
+
+    # - role: nodejs
+    #   tags: nodejs
+
+    - role: fonts
+      tags: fonts

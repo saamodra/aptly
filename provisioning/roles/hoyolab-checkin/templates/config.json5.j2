@@ -1,0 +1,140 @@
+{
+  "loglevel": "info",
+  "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0",
+  "platforms": [
+    {
+      "id": 1,
+      "active": false,
+      "type": "discord",
+      "botId": "123",
+      "token": "{{ discord_bot_token }}"
+    },
+    {
+      "id": 2,
+      "active": true,
+      "type": "telegram",
+      "chatId": 680229905,
+      "token": "{{ telegram_token }}",
+      "disableNotification": false
+    },
+    {
+      "id": 3,
+      "active": false,
+      "type": "webhook",
+      "url": "{{ webhook_url }}"
+    }
+  ],
+  "crons": {
+    "whitelist": [],
+    "blacklist": [
+      "expedition",
+      "realmCurrency",
+      "shopStatus",
+      "stamina"
+    ],
+    "checkIn": "{{ cron_check_in }}",
+    "codeRedeem": "{{ cron_code_redeem }}",
+    "expedition": "{{ cron_expedition }}",
+    "missedCheckIn": "{{ cron_missed_check_in }}",
+    "realmCurrency": "{{ cron_realm_currency }}",
+    "shopStatus": "{{ cron_shop_status }}",
+    "stamina": "{{ cron_stamina }}"
+  },
+  "accounts": [
+    {
+      "id": 1,
+      "active": false,
+      "type": "honkai",
+      "data": [
+        {
+          "cookie": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "active": false,
+      "type": "termis",
+      "data": [
+        {
+          "cookie": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "active": false,
+      "type": "genshin",
+      "data": [
+        {
+          "cookie": "",
+          "redeemCode": false,
+          "dailiesCheck": false,
+          "weekliesCheck": false,
+          "realm": {
+            "check": false,
+            "persistent": false
+          },
+          "stamina": {
+            "check": false,
+            "threshold": 150,
+            "persistent": false
+          },
+          "expedition": {
+            "check": false,
+            "persistent": false
+          },
+          "discord": {
+            "userId": null
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "active": true,
+      "type": "starrail",
+      "data": [
+        {
+          "cookie": "{{ starrail_cookie }}",
+          "redeemCode": true,
+          "dailiesCheck": true,
+          "weekliesCheck": true,
+          "stamina": {
+            "check": false,
+            "threshold": 150,
+            "persistent": false
+          },
+          "expedition": {
+            "check": false,
+            "persistent": false
+          },
+          "discord": {
+            "userId": null
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "active": false,
+      "type": "zenless",
+      "data": [
+        {
+          "cookie": "",
+          "redeemCode": false,
+          "shopStatus": false,
+          "dailiesCheck": false,
+          "stamina": {
+            "check": false,
+            "threshold": 200,
+            "persistent": false
+          },
+          "discord": {
+            "userId": null
+          }
+        }
+      ]
+    }
+  ]
+}

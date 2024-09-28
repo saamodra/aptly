@@ -1,0 +1,35 @@
+---
+- name: Download and install NVM
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+  args:
+    creates: /root/.nvm/nvm.sh
+
+- name: Source NVM script
+  shell: . /root/.nvm/nvm.sh
+  args:
+    executable: /bin/bash
+
+- name: Install Node.js using NVM
+  shell: . /root/.nvm/nvm.sh && nvm install {{ nodejs_version }}
+  args:
+    executable: /bin/bash
+
+- name: Verify Node.js version
+  shell: . /root/.nvm/nvm.sh && node -v
+  register: node_version
+  args:
+    executable: /bin/bash
+
+- name: Verify npm version
+  shell: . /root/.nvm/nvm.sh && npm -v
+  register: npm_version
+  args:
+    executable: /bin/bash
+
+- name: Print Node.js version
+  debug:
+    msg: "Node.js version: {{ node_version.stdout }}"
+
+- name: Print npm version
+  debug:
+    msg: "npm version: {{ npm_version.stdout }}"

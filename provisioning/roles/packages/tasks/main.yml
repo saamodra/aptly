@@ -1,0 +1,6 @@
+---
+- import_tasks: apt.yml
+  tags: apt-install
+
+- import_tasks: snap.yml
+  tags: snap-install

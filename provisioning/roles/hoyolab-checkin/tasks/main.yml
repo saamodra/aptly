@@ -1,0 +1,15 @@
+---
+- name: Clone Hoyolab Auto repository
+  git:
+    repo: 'git@github.com:torikushiii/hoyolab-auto.git'
+    dest: "/home/{{ ansible_user }}/hoyolab-auto"
+    version: main
+    accept_hostkey: yes
+
+- name: Copy hoyolab-checkin configuration
+  template:
+    src: ../templates/config.json5.j2
+    dest: "/home/{{ ansible_user }}/hoyolab-auto/config.json5"
+    owner: "{{ ansible_user }}"
+    group: wheel
+    mode: '0644'

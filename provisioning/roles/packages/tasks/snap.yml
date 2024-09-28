@@ -1,0 +1,39 @@
+---
+- name: Ensure snapd is installed
+  apt:
+    name: snapd
+    state: present
+  when: ansible_os_family == "Debian"
+
+
+- name: Install essentials from Snap
+  snap:
+    name: "{{ item.name }}"
+    state: present
+    classic: "{{ item.classic | default(false) }}"
+  with_items:
+    - { name: 'bitwarden', classic: false }
+    - { name: 'spotify', classic: false }
+
+
+- name: Install jetbrains from Snap
+  snap:
+    name: "{{ item.name }}"
+    state: present
+    classic: "{{ item.classic | default(false) }}"
+  with_items:
+    - { name: 'android-studio', classic: true }
+    - { name: 'intellij-idea-ultimate', classic: true }
+    - { name: 'pycharm-professional', classic: true }
+
+
+- name: Install development from Snap
+  snap:
+    name: "{{ item.name }}"
+    state: present
+    classic: "{{ item.classic | default(false) }}"
+  with_items:
+    - { name: 'code', classic: true }
+    - { name: 'helm', classic: true }
+    - { name: 'kubectl', classic: true }
+    - { name: 'postman', classic: false }

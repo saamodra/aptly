@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: samodra
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMEBsawCqO+/Up4N82HjNLeXwUNHUKDpsNpoUbMnXuhg3YhoMKtzMoBGZYuSuNdAnJdRluDN2lAN3tKQy7/eEJzfut3dYsyigFJlzJJF+eIhOz6D2h960BFNNUwvmyqZQ3QuHAx5qT5oalm9eFqut5SdHxTa2FhntRudNDfqqk/HD+yoyv5/aHU1ot7hRkbGV+8xnMu5qn3P1rKU7YPZ4E5TF/IRgrzzD+j1xqug+JftAStX6pCtpA7DaUKW4KNDjXHMGGhKuke3Eex6Bdcjr9+oz74L24FPLTkcn1ELWsP73LaF/0jDVa83Vdn7jy50QtTrDmmeXAJ7+rRK89MCFlANL2jLCUTyrDeo0j/85Xn1OjUVihXbjz0QuurHdRQ2/EmL4UMh4/6Odd/bGZ3YzbeeoMEOdjii3frpk5z3SCr8IxmA+Lkeumdgb8u/Af9pBWcvUWKsQrfgTf1g75yY3BoOnvNJhnYY9Fp1+f/e1q7OwrSZGA7Ixb+ZffG3pmFCE= samodra
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash

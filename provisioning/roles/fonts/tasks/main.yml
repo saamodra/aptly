@@ -1,0 +1,28 @@
+---
+- name: Define list of Nerd Fonts
+  set_fact:
+    nerd_fonts:
+      - JetBrainsMono
+      - Iosevka
+
+- name: Download Nerd Fonts
+  get_url:
+    url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ nerd_fonts_version }}/{{ item }}.zip"
+    dest: "~/Downloads/fonts/{{ item }}.zip"
+  loop: "{{ nerd_fonts }}"
+
+- name: Unzip Nerd Fonts
+  unarchive:
+    src: "~/Downloads/fonts/{{ item }}.zip"
+    dest: "~/.fonts/"
+    remote_src: yes
+  loop: "{{ nerd_fonts }}"
+
+- name: Remove Nerd Fonts zip files
+  file:
+    path: "~/Downloads/fonts/{{ item }}.zip"
+    state: absent
+  loop: "{{ nerd_fonts }}"
+
+- name: Refresh font cache
+  command: fc-cache -fv
